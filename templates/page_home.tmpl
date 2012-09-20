@@ -1,0 +1,95 @@
+<section id="maintoolbar">
+	<div class="container">
+		<div class="toolbar clearfix  ">
+
+			<ul class="nav nav-pills pull-left">
+				<li>
+					<h2 style="padding-left: 30px; margin-bottom: -5px;">Documentation</h2>
+				</li>
+
+				<li class="divider-vertical"></li>
+
+			</ul>
+		</div>
+		<div class="toolbar-end"></div>
+	</div>
+
+</section>
+<section role="main" id="pagecontent">
+	<div class="container admin_pages">
+
+
+		<div class="row">
+			<article id="left-area" class="span11">
+				<div class="content">
+					<div class="scroll-pane scrolly" >
+						<div id="divRss"></div>
+					</div>
+				</div>
+				<div class="loadingmask wide"></div>
+			</article>
+			<article id="right-area" class="span5 offset11">
+
+				<h2 style="border-bottom: 1px dotted #ccc; margin-top: 10px; padding-left: 10px; margin-bottom: 10px;">Legend</h2>
+
+				<table>
+					<tr>
+						<th style="width:40px;">
+							+
+						</th>
+						<td class="s g" style="width: 50px;">
+							(plus)
+						</td>
+						<td>
+							Added (new)
+						</td>
+					</tr>
+					<tr>
+						<th>
+							#
+						</th>
+						<td class="s g">
+							(hash)
+						</td>
+						<td>
+							Changed
+						</td>
+					</tr>
+					<tr>
+						<th>
+							-
+						</th>
+						<td class="s g">
+							(hyphen)
+						</td>
+						<td>
+							Removed
+						</td>
+					</tr>
+					<tr>
+						<th>
+							*
+						</th>
+						<td class="s g">
+							(asterisk)
+						</td>
+						<td>
+							Fixed
+						</td>
+					</tr>
+				</table>
+
+
+			</article>
+		</div>
+
+
+	</div>
+
+</section>
+<script type="text/javascript">
+    var git_path = "{{ _cfg['git']['path'] }}";
+    var git_branch = "{{ _cfg['git']['branch'] }}";
+    var git_login = "{{ _cfg['git']['username'] }}";
+    var git_token = "{{ _cfg['git']['token'] }}";
+</script>
