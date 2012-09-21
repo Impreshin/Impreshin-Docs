@@ -1,14 +1,14 @@
 name the files as follows
 
-<app>_<section>_<sub-section>-<ref>
+<app>#<section>#<sub-section>-<ref>
 
 so something like
 
-ab_form-add.swf
-ab_form-edit.swf
-ab_form-delete.swf
-ab_bookings-settings.swf 
-ab_administration_system_publication-add.swf
+ab#form-add.swf
+ab#form-edit.swf
+ab#form-delete.swf
+ab#bookings-settings.swf 
+ab#admin#system_publication-add.swf
 
 ---------------------------------
 
@@ -17,58 +17,57 @@ the files should start with:
 
 -- front --
 
-ab_form-*
-ab_bookins-*
-ab_production-*
-ab_layout-*
-ab_overview-*
+ab#form-*
+ab#bookins-*
+ab#production-*
+ab#layout-*
+ab#overview-*
 
-ab_records_deleted-*
-ab_records_search-*
+ab#records#deleted-*
+ab#records#search-*
 
 
 -- reports --
 
-ab_reports_account_figures-*
-ab_reports_account_discounts-*
+ab#reports#account_figures-*
+ab#reports#account_discounts-*
 
-ab_reports_marketer_figures-*
-ab_reports_marketer_discounts-*
-ab_reports_marketer_targets-*
+ab#reports#marketer_figures-*
+ab#reports#marketer_discounts-*
+ab#reports#marketer_targets-*
 
-ab_reports_production_figures-*
+ab#reports#production_figures-*
 
-ab_reports_category_figures-*
-ab_reports_category_discounts-*
+ab#reports#category_figures-*
+ab#reports#category_discounts-*
 
-ab_reports_publication_figures-*
-ab_reports_publication_discounts-*
-ab_reports_publication_section-*
-ab_reports_publication_placing-*
+ab#reports#publication_figures-*
+ab#reports#publication_discounts-*
+ab#reports#publication_section-*
+ab#reports#publication_placing-*
 
 
 -- administration --
 
 - application -
 
-ab_administration_application_accounts-*
-ab_administration_application_accounts_status-*
-ab_administration_application_categories-*
-ab_administration_application_marketers-*
-ab_administration_application_marketers_targets-*
-ab_administration_application_production-*
-ab_administration_application_sections-*
-ab_administration_application_placing-*
-ab_administration_application_placing_colours-*
-ab_administration_application_loading-*
-ab_administration_application_inserts_types-*
+ab#admin#accounts-*
+ab#admin#accounts_status-*
+ab#admin#categories-*
+ab#admin#marketers-*
+ab#admin#marketers_targets-*
+ab#admin#production-*
+ab#admin#sections-*
+ab#admin#placing-*
+ab#admin#placing_colours-*
+ab#admin#loading-*
+ab#admin#inserts_types-*
 
 - system -
 
-ab_administration_system_dates-*
-ab_administration_system_users-*
-ab_administration_system_publications-*
-ab_administration_system_company-*
+ab#admin#dates-*
+ab#admin#users-*
+ab#admin#publications-*
 
 
 
