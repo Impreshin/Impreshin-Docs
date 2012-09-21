@@ -1,4 +1,4 @@
 Impreshin-Help
 ==============
 
-Impreshin help submodule
+Impreshin help sub-module
