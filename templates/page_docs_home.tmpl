@@ -23,20 +23,53 @@
 			<article id="left-area" class="span11">
 				<div class="content">
 					<div class="scroll-pane scrolly" >
-						<div id="divRss"></div>
+
+
+
+                        data
+
+
+
+
 					</div>
 				</div>
 				<div class="loadingmasks wide"></div>
 			</article>
-			<article id="right-area" class="span5 offset11">
+            <article id="right-area" class="span5 offset11">
 
-				<h2 style="border-bottom: 1px dotted #ccc; margin-top: 10px; padding-left: 10px; margin-bottom: 10px;">Recent Tutorials</h2>
-				<h2 style="border-bottom: 1px dotted #ccc; margin-top: 10px; padding-left: 10px; margin-bottom: 10px;">Top Tutorials</h2>
+                <ul>
+                    {% for key, row in data['help'] %}
+                        <li>
+                            <a href="/{{ data['app'] }}/help/{{ key }}/">
+                                {{ row['title'] }}
+                            </a>
+                            <ul>
+                                {% for skey, srow in row['help'] %}
+                                    <li>
+                                        <a href="/{{ data['app'] }}/help/{{ key }}/{{ skey }}/">
+                                            {{ skey }}
+                                        </a>
+                                        <ul>
+
+                                            {% for sskey, ssrow in srow['help'] %}
+                                                <li>
+                                                    <a href="/{{ data['app'] }}/help/{{ key }}/{{ skey }}/{{ sskey }}">
+                                                        {{ ssrow['heading'] }}
+                                                    </a>
+                                                </li>
 
 
+                                            {% endfor %}
+                                        </ul>
+
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+                    {% endfor %}
 
 
-			</article>
+            </article>
 		</div>
 
 
