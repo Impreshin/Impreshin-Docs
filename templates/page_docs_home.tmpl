@@ -16,7 +16,7 @@
 
 </section>
 <section role="main" id="pagecontent">
-	<div class="container admin_pages">
+	<div class="container help_pages">
 
 
 		<div class="row">
@@ -37,16 +37,17 @@
 			</article>
             <article id="right-area" class="span5 offset11">
 
+                <h2 style="">Table of Contents</h2>
                 <ul>
                     {% for key, row in data['help'] %}
                         <li>
-                            <a href="/{{ data['app'] }}/help/{{ key }}/">
+                            <a href="/{{ data['app'] }}/help/{{ key }}">
                                 {{ row['title'] }}
                             </a>
                             <ul>
                                 {% for skey, srow in row['help'] %}
                                     <li>
-                                        <a href="/{{ data['app'] }}/help/{{ key }}/{{ skey }}/">
+                                        <a href="/{{ data['app'] }}/help/{{ key }}/{{ skey }}">
                                             {{ skey }}
                                         </a>
                                         <ul>
@@ -67,6 +68,7 @@
                             </ul>
                         </li>
                     {% endfor %}
+                    </ul>
 
 
             </article>

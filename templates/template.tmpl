@@ -1,0 +1,54 @@
+
+<!doctype html>
+<!--[if lt IE 9]>
+<html class="no-js oldie" lang="en"> <![endif]-->
+<!--[if IE 9]>
+<html class="no-js ie ie9" lang="en"> <![endif]-->
+<!--[if gt IE 9]>
+<html class="no-js ie" lang="en">
+<![endif]-->
+<!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+	<title>{{ page['meta']['title']|default("") }}</title>
+
+	<link rel="stylesheet" type="text/css" href="/ui/_css/custom-theme/jquery-ui.css"/>
+	<link rel="stylesheet" type="text/css" href="/min/css.{{_v}}.css"/>
+
+
+	<script src="/ui/_js/libs/modernizr.{{_v}}.js"></script>
+
+
+	{% if page['template_css'] %}
+	<link rel="stylesheet" href="{{ page['template_css'] }}">
+	{% endif %}
+
+
+
+
+
+
+</head>
+<body class="help_pages">
+
+{% if page['template'] %} {% include page['template'] %} {% endif %}
+
+
+
+<script  src="/ui/_js/libs/jquery.{{_v}}.js"></script>
+
+
+<script src="/min/js.{{_v}}.js"></script>
+
+
+
+{% if page['template_js'] %}
+<script src='{{ page['template_js'] }}'></script>
+{% endif %}
+
+</body>
+</html>

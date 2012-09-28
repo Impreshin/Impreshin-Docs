@@ -9,7 +9,7 @@
 
 				<li class="divider-vertical"></li>
                 <li>
-                    <h2 style=" margin-bottom: -5px;"><small> {{ data['help']['heading'] }}</small></h2></li>
+                    <h2 style=" margin-bottom: -5px;"><small> {{ data['sub_title'] }} {%  if data['sub_section_item'] %} - {{ data['help']['heading'] }}{% endif %}</small></h2></li>
 
 			</ul>
 		</div>
@@ -18,17 +18,29 @@
 
 </section>
 <section role="main" id="pagecontent">
-	<div class="container admin_pages">
+	<div class="container help_pages">
 
 
 		<div class="row">
 			<article id="left-area" class="span11">
 				<div class="content">
 					<div class="scroll-pane scrolly" >
+                        <ul class="breadcrumb">
+                            <li><a href="/{{ data['app'] }}/help">help</a> <span class="divider">/</span></li>
+                            <li><a href="/{{ data['app'] }}/help/{{ data['section'] }}">{{ data['section'] }}</a> <span class="divider">/</span></li>
+                            {% if data['details'] and not data['sub_section_item'] %}
+                                <li class="active">{{ data['sub_section'] }}</li>
+                            {% else %}
+                                <li>
+                                    <a href="/{{ data['app'] }}/help/{{ data['section'] }}/{{ data['sub_section'] }}">{{ data['sub_section'] }}</a>
+                                    <span class="divider">/</span></li>
+                                <li class="active">{{ data['sub_section_item'] }}</li>
+
+                            {% endif %}
+                        </ul>
 
 
-
-                        data
+                        {{ data['help']['file'] }}
 
 
 
@@ -39,8 +51,7 @@
 			</article>
 			<article id="right-area" class="span5 offset11">
 
-				<h2 style="border-bottom: 1px dotted #ccc; margin-top: 10px; padding-left: 10px; margin-bottom: 10px;">Recent Tutorials</h2>
-				<h2 style="border-bottom: 1px dotted #ccc; margin-top: 10px; padding-left: 10px; margin-bottom: 10px;">Top Tutorials</h2>
+            <h2>Details</h2>
 
 
 
