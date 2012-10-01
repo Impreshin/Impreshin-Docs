@@ -1,4 +1,5 @@
-<h2>Sections <a href="/{{ raw['app'] }}/help" class="btn span1" style="float:right; margin-right: 20px;"><i class="icon-home"></i></a></h2>
+<h2>Sections <a href="/{{ raw['app'] }}/help" class="btn span1" style="float:right; margin-right: 5px;"><i class="icon-home  icon-d-grey"></i></a></h2>
+<div class="scroll-pane" style="top:48px;">
 <ul class="nav">
     {% for key, row in raw['data'][raw['app']] %}
         <li {% if key==raw['section'] %}class="active"{% endif %}>
@@ -40,3 +41,4 @@
         </li>
     {% endfor %}
 </ul>
+    </div>

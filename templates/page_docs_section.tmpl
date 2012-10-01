@@ -40,42 +40,20 @@
 			</article>
 			<article id="right-area" class="span5 offset11">
                {% include "_side_nav.tmpl" %}
-                <h2 style="">Sub Sections</h2>
-                <ul class="nav">
-                    {% for key, row in data['help'] %}
-                        <li>
-                            <a href="/{{ data['app'] }}/help/{{ data['section'] }}/{{ key }}">
-                                {{ row['title']?row['title']:row['heading'] }}
-                            </a>
-                            <ul>
-                                {% for skey, srow in row['help'] %}
-                                    <li>
-                                        <a href="/{{ data['app'] }}/help/{{ data['section'] }}/{{ key }}/{{ skey }}">
-                                            {% if not srow['heading'] %}
-                                                {{ srow['title'] }}
-                                            {% else %}
-                                                {{ srow['heading'] }}
-                                            {% endif %}
-                                        </a>
-                                        <ul>
+                <div class="bottom-right">
+                    <h3 style="">Sub Sections {% if data['up'] %}<a href="{{ data['up'] }}" class="btn btn-mini span1" style="float:right; margin-right: 5px;"><i class="icon-circle-arrow-up icon-d-grey"></i></a>{% endif %}</h3>
+                    <ul class="nav">
+                        {% for key, row in data['help'] %}
+                            <li>
+                                <a href="/{{ data['app'] }}/help/{{ data['section'] }}/{{ key }}">
+                                    {{ row['title']?row['title']:row['heading'] }}
+                                </a>
 
-                                            {% for sskey, ssrow in srow['help'] %}
-                                                <li>
-                                                    <a href="/{{ data['app'] }}/help/{{ data['section'] }}/{{ key }}/{{ skey }}/{{ sskey }}">
-                                                        {{ ssrow['heading'] }}
-                                                    </a>
-                                                </li>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
 
-
-                                            {% endfor %}
-                                        </ul>
-
-                                    </li>
-                                {% endfor %}
-                            </ul>
-                        </li>
-                    {% endfor %}
-                </ul>
 
 
 

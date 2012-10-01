@@ -1,33 +1,37 @@
 <section id="maintoolbar">
-	<div class="container">
-		<div class="toolbar clearfix  ">
+    <div class="container">
+        <div class="toolbar clearfix  ">
 
-			<ul class="nav nav-pills pull-left">
-				<li>
-					<h2 style="padding-left: 30px; margin-bottom: -5px;">{{ data['title'] }}</h2>
-				</li>
-
-				<li class="divider-vertical"></li>
+            <ul class="nav nav-pills pull-left">
                 <li>
-                    <h2 style=" margin-bottom: -5px;"><small> {{ data['sub_title'] }} {%  if data['sub_section_item'] %} - {{ data['help']['heading'] }}{% endif %}</small></h2></li>
+                    <h2 style="padding-left: 30px; margin-bottom: -5px;">{{ data['title'] }}</h2>
+                </li>
 
-			</ul>
-		</div>
-		<div class="toolbar-end"></div>
-	</div>
+                <li class="divider-vertical"></li>
+                <li>
+                    <h2 style=" margin-bottom: -5px;">
+                        <small> {{ data['sub_title'] }} {% if data['sub_section_item'] %} - {{ data['help']['heading'] }}{% endif %}</small>
+                    </h2>
+                </li>
+
+            </ul>
+        </div>
+        <div class="toolbar-end"></div>
+    </div>
 
 </section>
 <section role="main" id="pagecontent">
-	<div class="container help_pages">
+    <div class="container help_pages">
 
 
-		<div class="row">
-			<article id="left-area" class="span11">
-				<div class="content">
-					<div class="scroll-pane scrolly" >
+        <div class="row">
+            <article id="left-area" class="span11">
+                <div class="content">
+                    <div class="scroll-pane scrolly">
                         <ul class="breadcrumb">
                             <li><a href="/{{ data['app'] }}/help">help</a> <span class="divider">/</span></li>
-                            <li><a href="/{{ data['app'] }}/help/{{ data['section'] }}">{{ data['section'] }}</a> <span class="divider">/</span></li>
+                            <li><a href="/{{ data['app'] }}/help/{{ data['section'] }}">{{ data['section'] }}</a>
+                                <span class="divider">/</span></li>
                             {% if data['details'] and not data['sub_section_item'] %}
                                 <li class="active">{{ data['sub_section'] }}</li>
                             {% else %}
@@ -43,24 +47,29 @@
                         {{ data['help']['file'] }}
 
 
-
-
-					</div>
-				</div>
-				<div class="loadingmasks wide"></div>
-			</article>
-			<article id="right-area" class="span5 offset11">
+                    </div>
+                </div>
+                <div class="loadingmasks wide"></div>
+            </article>
+            <article id="right-area" class="span5 offset11">
                 {% include "_side_nav.tmpl" %}
 
-            <h2>Details <a href="/{{ raw['app'] }}/help/{{ raw['section'] }} {% if raw['help'] %}/{{ raw['sub_section'] }}{% endif %}" class="btn span1" style="float:right; margin-right: 20px;"><i class="icon-circle-arrow-up"></i></a></h2>
+                <div class="bottom-right">
+                    <h2>Details
+                        {% if data['up'] %}
+                            <a href="{{ data['up'] }}" class="btn  btn-mini span1" style="float:right; margin-right: 5px;">
+                                <i class="icon-circle-arrow-up icon-d-grey"></i></a>{% endif %}
+                    </h2>
 
 
+                </div>
 
 
-			</article>
-		</div>
+                <div class="clearfix"></div>
+            </article>
+        </div>
 
 
-	</div>
+    </div>
 
 </section>

@@ -47,6 +47,26 @@
 
     parent.$.bbq.pushState({"help":"{{ _uri }}"});
 
+
+    var jScrollPaneOptions = {
+        showArrows:false,
+        maintainPosition:false
+    };
+
+    function scrollbars(){
+        var $right_area = $("#right-area .scroll-pane");
+        if ($(".bottom-right").length) {
+            $right_area.css("bottom", $(".bottom-right").outerHeight() + 30);
+        }
+        $right_area.jScrollPane(jScrollPaneOptions);
+    }
+
+    $(document).ready(function(){
+        scrollbars();
+    })
+
+
+
 </script>
 
 

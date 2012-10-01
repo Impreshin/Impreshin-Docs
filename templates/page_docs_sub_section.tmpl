@@ -1,98 +1,75 @@
 <section id="maintoolbar">
-	<div class="container">
-		<div class="toolbar clearfix  ">
+    <div class="container">
+        <div class="toolbar clearfix  ">
 
-			<ul class="nav nav-pills pull-left">
-				<li>
-					<h2 style="padding-left: 30px; margin-bottom: -5px;">{{ data['title'] }}</h2>
-				</li>
+            <ul class="nav nav-pills pull-left">
+                <li>
+                    <h2 style="padding-left: 30px; margin-bottom: -5px;">{{ data['title'] }}</h2>
+                </li>
 
-				<li class="divider-vertical"></li>
+                <li class="divider-vertical"></li>
                 <li>
                     <h2 style=" margin-bottom: -5px;">
                         <small> {{ data['sub_title']|capitalize }}</small>
                     </h2>
                 </li>
-			</ul>
-		</div>
-		<div class="toolbar-end"></div>
-	</div>
+            </ul>
+        </div>
+        <div class="toolbar-end"></div>
+    </div>
 
 </section>
 <section role="main" id="pagecontent">
-	<div class="container help_pages">
+    <div class="container help_pages">
 
 
-		<div class="row">
-			<article id="left-area" class="span11">
-				<div class="content">
-					<div class="scroll-pane scrolly" >
+        <div class="row">
+            <article id="left-area" class="span11">
+                <div class="content">
+                    <div class="scroll-pane scrolly">
 
                         <ul class="breadcrumb">
                             <li><a href="/{{ data['app'] }}/help/">help</a> <span class="divider">/</span></li>
-                            <li><a href="/{{ data['app'] }}/help/{{ data['section'] }}/">{{ data['section'] }}</a> <span class="divider">/</span></li>
+                            <li><a href="/{{ data['app'] }}/help/{{ data['section'] }}/">{{ data['section'] }}</a>
+                                <span class="divider">/</span></li>
                             <li class="active">{{ data['sub_section'] }}</li>
                         </ul>
 
                         {{ data['file'] }}
 
 
-
-
-					</div>
-				</div>
-				<div class="loadingmasks wide"></div>
-			</article>
-			<article id="right-area" class="span5 offset11">
+                    </div>
+                </div>
+                <div class="loadingmasks wide"></div>
+            </article>
+            <article id="right-area" class="span5 offset11">
 
                 {% include "_side_nav.tmpl" %}
-                {% if not data['help']['heading'] %}
+                <div class="bottom-right">
+                    {% if not data['help']['heading'] %}
 
-                <h2>Sub Sections</h2>
-                <ul class="nav">
-                    {% for key, row in data['help'] %}
-                        <li>
-                            <a href="/{{ data['app'] }}/help/{{ data['section'] }}/{{ data['sub_section'] }}/{{ key }}/">
-                                {{ row['title']?row['title']:row['heading'] }}
-                            </a>
-                            <ul>
-                                {% for skey, srow in row['help'] %}
-                                    <li>
-                                        <a href="/{{ data['app'] }}/help/{{ data['section'] }}/{{ data['sub_section'] }}/{{ key }}/{{ skey }}/">
-                                            {% if not srow['heading'] %}
-                                                {{ srow['title'] }}
-                                            {% else %}
-                                                {{ srow['heading'] }}
-                                            {% endif %}
-                                        </a>
-                                        <ul>
+                        <h3>Sub Sections {% if data['up'] %}
+                            <a href="{{ data['up'] }}" class="btn span1 btn-mini" style="float:right; margin-right: 5px;">
+                                <i class="icon-circle-arrow-up icon-d-grey"></i></a>{% endif %}</h3>
+                        <ul class="nav">
+                            {% for key, row in data['help'] %}
+                                <li>
+                                    <a href="/{{ data['app'] }}/help/{{ data['section'] }}/{{ data['sub_section'] }}/{{ key }}/">
+                                        {{ row['title']?row['title']:row['heading'] }}
+                                    </a>
 
-                                            {% for sskey, ssrow in srow['help'] %}
-                                                <li>
-                                                    <a href="/{{ data['app'] }}/help/{{ data['section'] }}/{{ data['sub_section'] }}/{{ key }}/{{ skey }}/{{ sskey }}/">
-                                                        {{ ssrow['heading'] }}
-                                                    </a>
-                                                </li>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
 
 
-                                            {% endfor %}
-                                        </ul>
+                </div>
 
-                                    </li>
-                                {% endfor %}
-                            </ul>
-                        </li>
-                    {% endfor %}
-                </ul>
-                {% endif %}
+            </article>
+        </div>
 
 
-
-
-			</article>
-		</div>
-
-
-	</div>
+    </div>
 
 </section>
