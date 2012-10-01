@@ -38,7 +38,7 @@
             <article id="right-area" class="span5 offset11">
 
                 <h2 style="">Table of Contents</h2>
-                <ul>
+                <ul class="nav">
                     {% for key, row in data['help'] %}
                         <li>
                             <a href="/{{ data['app'] }}/help/{{ key }}">
@@ -48,7 +48,11 @@
                                 {% for skey, srow in row['help'] %}
                                     <li>
                                         <a href="/{{ data['app'] }}/help/{{ key }}/{{ skey }}">
-                                            {{ skey }}
+                                            {% if not srow['heading'] %}
+                                                {{ srow['title'] }}
+                                            {%  else %}
+                                                {{ srow['heading'] }}
+                                            {% endif %}
                                         </a>
                                         <ul>
 

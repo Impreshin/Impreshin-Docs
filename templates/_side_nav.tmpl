@@ -1,0 +1,42 @@
+<h2>Sections <a href="/{{ raw['app'] }}/help" class="btn span1" style="float:right; margin-right: 20px;"><i class="icon-home"></i></a></h2>
+<ul class="nav">
+    {% for key, row in raw['data'][raw['app']] %}
+        <li {% if key==raw['section'] %}class="active"{% endif %}>
+            <a href="/{{ raw['app'] }}/help/{{ key }}">
+                {{ row['title'] }}
+            </a>
+            {% if key==raw['section'] %}
+                <ul>
+                    {% for skey, srow in row['help'] %}
+                        <li {% if skey==raw['sub_section'] %}class="active"{% endif %}>
+                            <a href="/{{ data['app'] }}/help/{{ key }}/{{ skey }}">
+                                {% if not srow['heading'] %}
+                                    {{ srow['title'] }}
+                                {% else %}
+                                    {{ srow['heading'] }}
+                                {% endif %}
+                            </a>
+
+                            {% if skey==raw['sub_section'] and srow['help'] %}
+                                <ul>
+
+                                    {% for sskey, ssrow in srow['help'] %}
+                                        <li {% if sskey==raw['sub_section_item'] %}class="active"{% endif %}>
+                                            <a href="/{{ data['app'] }}/help/{{ key }}/{{ skey }}/{{ sskey }}">
+                                                {{ ssrow['heading'] }}
+                                            </a>
+                                        </li>
+
+
+                                    {% endfor %}
+                                </ul>
+                            {% endif %}
+
+
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </li>
+    {% endfor %}
+</ul>

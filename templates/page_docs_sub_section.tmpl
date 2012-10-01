@@ -45,10 +45,11 @@
 			</article>
 			<article id="right-area" class="span5 offset11">
 
-
+                {% include "_side_nav.tmpl" %}
                 {% if not data['help']['heading'] %}
-                <h2>Table of Contents</h2>
-                <ul>
+
+                <h2>Sub Sections</h2>
+                <ul class="nav">
                     {% for key, row in data['help'] %}
                         <li>
                             <a href="/{{ data['app'] }}/help/{{ data['section'] }}/{{ data['sub_section'] }}/{{ key }}/">
@@ -58,7 +59,11 @@
                                 {% for skey, srow in row['help'] %}
                                     <li>
                                         <a href="/{{ data['app'] }}/help/{{ data['section'] }}/{{ data['sub_section'] }}/{{ key }}/{{ skey }}/">
-                                            {{ skey }}
+                                            {% if not srow['heading'] %}
+                                                {{ srow['title'] }}
+                                            {% else %}
+                                                {{ srow['heading'] }}
+                                            {% endif %}
                                         </a>
                                         <ul>
 

@@ -71,7 +71,7 @@ $docs['ab']=array(
 					"description"=> "Tutorial on how to add a booking",
 					"file"=> "ab#bookings#highlight.html",
 					"tutorial"=> "",
-					"p"=> 0
+					"p"=> 1
 				),
 				"filter"=>array(
 					"heading"    => "filter bookings",
@@ -88,6 +88,28 @@ $docs['ab']=array(
 					"tutorial"=> "",
 					"faq"     => "",
 					"p"=> 1
+				)
+		)
+
+	),
+	"records"=>array(
+		"title"=>"Records",
+		"file"=>"ab#records.html",
+		"help"=>array(
+				"deleted"=>array(
+					"heading"    => "Deleted Records",
+					"description"=> "",
+					"file"=> "ab#records#deleted.html",
+					"tutorial"=>"",
+					"faq"=>"",
+					"p"=> perm('records', 'deleted','page')
+				),
+				"search"=>array(
+					"heading"    => "Search for a record",
+					"description"=> "",
+					"file"=> "ab#records#search.html",
+					"tutorial"=> "",
+					"p"=> perm('records', 'search','page')
 				)
 		)
 

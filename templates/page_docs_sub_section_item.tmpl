@@ -50,8 +50,9 @@
 				<div class="loadingmasks wide"></div>
 			</article>
 			<article id="right-area" class="span5 offset11">
+                {% include "_side_nav.tmpl" %}
 
-            <h2>Details</h2>
+            <h2>Details <a href="/{{ raw['app'] }}/help/{{ raw['section'] }} {% if raw['help'] %}/{{ raw['sub_section'] }}{% endif %}" class="btn span1" style="float:right; margin-right: 20px;"><i class="icon-circle-arrow-up"></i></a></h2>
 
 
 
