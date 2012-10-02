@@ -55,16 +55,67 @@
 
     function scrollbars(){
         var $right_area = $("#right-area .scroll-pane");
+        var $left_area = $("#left-area .scroll-pane");
         if ($(".bottom-right").length) {
             $right_area.css("bottom", $(".bottom-right").outerHeight() + 30);
         }
         $right_area.jScrollPane(jScrollPaneOptions);
+        $left_area.jScrollPane(jScrollPaneOptions);
     }
 
     $(document).ready(function(){
         scrollbars();
-    })
 
+
+        $("map").each(function(){
+            var $map = $(this);
+            var $image = $("img[usemap='#"+$map.attr("name")+"']");
+            var $container = $image.parent();
+
+            $("area", $map).each(function () {
+                var $this = $(this);
+                var coords = $this.attr("coords").split(",");
+
+
+                var left = coords[0];
+                var top = coords[1];
+                var right = coords[2];
+                var bottom = coords[3];
+
+                var width = right - left;
+                var height = bottom - top;
+
+
+
+                $container.append('<a style="top:'+top+'px;width:'+width+'px;height:'+height+'px;left:'+left+'px;" rel="popover" data-title="'+$this.attr("alt")+'" data-content="' + $this.attr("data-content") + '" href="' + $this.attr("href") + '">&nbsp;</a>');
+
+            })
+            $map.remove();
+
+
+        });
+
+
+
+        });
+        $(function () {
+            $(document).tooltip({
+                selector:'[rel=tooltip]'
+            });
+            $(document).popover({
+                selector:'[rel=popover]'
+            });
+
+            $("*[rel=tooltip]").tooltip({
+                live:true
+            });
+
+            $("[rel=popover]").popover({
+                offset:5,
+                live:true,
+                trigger:'hover'
+            });
+        });
 
 
 </script>

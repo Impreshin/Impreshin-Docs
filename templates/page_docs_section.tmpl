@@ -22,21 +22,23 @@
 		<div class="row">
 			<article id="left-area" class="span11">
 				<div class="content">
-					<div class="scroll-pane scrolly" >
+
                         <ul class="breadcrumb">
                             <li><a href="/{{ data['app'] }}/help">help</a> <span class="divider">/</span></li>
                             <li class="active">{{ data['section'] }}</li>
                         </ul>
+                        <div class="scroll-pane scrolly" style="top: 35px;">
 
-
-                        {{ data['file'] }}
+                        {% if data['file'] %}
+                            {% set file = data['file'] %}
+                            {% include [ file, 'none.html'] %}
+                        {% endif %}
 
 
 
 
 					</div>
 				</div>
-				<div class="loadingmasks wide"></div>
 			</article>
 			<article id="right-area" class="span5 offset11">
                {% include "_side_nav.tmpl" %}

@@ -26,7 +26,6 @@
         <div class="row">
             <article id="left-area" class="span11">
                 <div class="content">
-                    <div class="scroll-pane scrolly">
 
                         <ul class="breadcrumb">
                             <li><a href="/{{ data['app'] }}/help/">help</a> <span class="divider">/</span></li>
@@ -35,7 +34,11 @@
                             <li class="active">{{ data['sub_section'] }}</li>
                         </ul>
 
-                        {{ data['file'] }}
+                    <div class="scroll-pane scrolly" style="top: 35px;">
+                        {% if data['file'] %}
+                            {% set file = data['file'] %}
+                            {% include [ file, 'none.html'] %}
+                        {% endif %}
 
 
                     </div>
