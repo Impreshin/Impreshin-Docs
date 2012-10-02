@@ -68,17 +68,17 @@ $docs['ab'] = array(
 				"p"          => 1
 			),
 			"highlight"=> array(
-				"heading"    => "highlight different records",
+				"heading"    => "highlight records",
 				"description"=> "Tutorial on how to add a booking",
 				"file"       => "ab_bookings_highlight.html",
-				"tutorial"   => "",
+				"tutorial"   => "bookings_highlight_filter.swf",
 				"p"          => 1
 			),
 			"filter"   => array(
-				"heading"    => "filter bookings",
+				"heading"    => "filter records",
 				"description"=> "Tutorial on how to add a booking",
 				"file"       => "ab_bookings_filter.html",
-				"tutorial"   => "",
+				"tutorial"   => "bookings_highlight_filter.swf",
 				"faq"        => "",
 				"p"          => 1
 			),
