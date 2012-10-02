@@ -128,21 +128,17 @@
         });
         $(function () {
             $(document).tooltip({
-                selector:'[rel=tooltip]'
-            });
-            $(document).popover({
-                selector:'[rel=popover]'
-            });
-
-            $("*[rel=tooltip]").tooltip({
+                selector:'[rel=tooltip]',
                 live:true
             });
-
-            $("[rel=popover]").popover({
+            $(document).popover({
+                selector:'[rel=popover]',
                 offset:5,
-                live:true,
+                live   :true,
                 trigger:'hover'
             });
+
+
         });
 
 
