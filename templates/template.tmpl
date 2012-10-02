@@ -85,9 +85,19 @@
                 var width = right - left;
                 var height = bottom - top;
 
+                var href = $this.attr("href");
+                var cursor = "pointer";
+
+                if (href && href != "#"){
+                    href = 'href="'+href+'"';
+                } else {
+                    href = '';
+                    cursor = 'help';
+                }
 
 
-                $container.append('<a style="top:'+top+'px;width:'+width+'px;height:'+height+'px;left:'+left+'px;" rel="popover" data-title="'+$this.attr("alt")+'" data-content="' + $this.attr("data-content") + '" href="' + $this.attr("href") + '">&nbsp;</a>');
+
+                $container.append('<a style="top:'+top+'px;width:'+width+'px;height:'+height+'px;left:'+left+'px; cursor: '+cursor+';" rel="popover" data-title="'+$this.attr("alt")+'" data-content="' + $this.attr("data-content") + '" ' + href + '>&nbsp;</a>');
 
             })
             $map.remove();
