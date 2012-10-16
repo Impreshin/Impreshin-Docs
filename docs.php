@@ -4,8 +4,6 @@
  * Time: 12:35 PM
  */
 
-
-//test_array($user);
 function perm() {
 	$args = func_get_args();
 	$user = F3::get("user");
