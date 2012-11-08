@@ -129,13 +129,15 @@
         $(function () {
             $(document).tooltip({
                 selector:'[rel=tooltip]',
-                live:true
+                live:true,
+                container:'body'
             });
             $(document).popover({
                 selector:'[rel=popover]',
                 offset:5,
                 live   :true,
-                trigger:'hover'
+                trigger:'hover',
+                container:'body'
             });
 
 
