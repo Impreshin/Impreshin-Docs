@@ -6,7 +6,8 @@
 
 function perm() {
 	$args = func_get_args();
-	$user = F3::get("user");
+	$f3 = \Base::instance();
+	$user = $f3->get("user");
 	$permission = $user['permissions'];
 
 	foreach ($args as $arg) {
