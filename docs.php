@@ -6,8 +6,18 @@
 
 function perm() {
 	$args = func_get_args();
-	$f3 = \Base::instance();
-	$user = $f3->get("user");
+
+	$ver = explode(".", \Base::TEXT_Version);
+	$ver = $ver[0];
+
+
+	if ($ver > 2){
+		$f3 = \Base::instance();
+		$user = $f3->get("user");
+	} else {
+		$user = \F3::get("user");
+	}
+
 	$permission = $user['permissions'];
 
 	foreach ($args as $arg) {
