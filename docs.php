@@ -4,10 +4,12 @@
  * Time: 12:35 PM
  */
 
+
 function perm() {
 	$args = func_get_args();
 
-	$ver = explode(".", \Base::VERSION);
+	$ver = defined('\Base::VERSION')? \Base::VERSION : \Base::TEXT_Version;
+	$ver = explode(".",$ver);
 	$ver = $ver[0];
 
 
