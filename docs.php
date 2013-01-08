@@ -8,8 +8,7 @@
 function perm() {
 	$args = func_get_args();
 
-	$ver = defined('\Base::VERSION')? \Base::VERSION : \Base::TEXT_Version;
-	$ver = explode(".",$ver);
+	$ver = explode(".", defined('\Base::VERSION') ? \Base::VERSION : \Base::TEXT_Version);
 	$ver = $ver[0];
 
 
