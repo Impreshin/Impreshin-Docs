@@ -7,7 +7,7 @@
 function perm() {
 	$args = func_get_args();
 
-	$ver = explode(".", \Base::TEXT_Version);
+	$ver = explode(".", \Base::VERSION);
 	$ver = $ver[0];
 
 
