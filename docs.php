@@ -62,6 +62,14 @@ $docs['ab'] = array(
 				"tutorial"   => "",
 				"faq"        => "",
 				"p"          => perm('form', 'delete')
+			),
+			"fields"=> array(
+				"heading"    => "Form fields",
+				"description"=> "A description of the various fields in the form",
+				"file"       => "ab_form_fields.html",
+				"tutorial"   => "",
+				"faq"        => "",
+				"p"          => "1"
 			)
 		)
 

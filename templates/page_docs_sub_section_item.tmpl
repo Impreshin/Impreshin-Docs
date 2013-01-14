@@ -47,11 +47,12 @@
                             {% endif %}
                         </ul>
                         <div class="scroll-pane scrolly" style="top: 35px;">
+                            <div id="help-content-pane" >
+                                {% if data['file'] %}
+                                    {% set file = data['help']['file'] %}
+                                    {% include [ file, 'none.html'] %}
+                                {% endif %}</div>
 
-                            {% if data['file'] %}
-                                {% set file = data['help']['file'] %}
-                                {% include [ file, 'none.html'] %}
-                            {% endif %}
 
                         </div>
                     </div>
