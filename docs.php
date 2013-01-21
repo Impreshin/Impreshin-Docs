@@ -78,36 +78,29 @@ $docs['ab'] = array(
 		"title"=> "Bookings",
 		"file" => "ab/ab_bookings.html",
 		"help" => array(
-			"settings" => array(
-				"heading"    => "Change list settings",
-				"description"=> "Help on how to add a booking",
-				"file"       => "ab/ab_record_settings.html",
-				"tutorial"   => "",
-				"faq"        => "",
-				"p"          => 1
-			),
+
 			"highlight"=> array(
-				"heading"    => "highlight records",
-				"description"=> "Tutorial on how to add a booking",
+				"heading"    => "Highlight Records",
+				"description"=> "Highlighting records to easily see state",
 				"file"       => "ab/ab_bookings_highlight.html",
 				"tutorial"   => "ab/bookings_highlight_filter.swf",
 				"p"          => 1
 			),
 			"filter"   => array(
-				"heading"    => "filter records",
-				"description"=> "Tutorial on how to add a booking",
-				"file"       => "ab/ab_bookings_filter.html",
-				"tutorial"   => "ab/bookings_highlight_filter.swf",
+				"heading"    => "Filter Records / Search",
+				"description"=> "Filtering Records based on their state",
+				"file"       => "ab/ab_records_filter.html",
+				"tutorial"   => "ab/bookings_records_filter.swf",
 				"faq"        => "",
 				"p"          => 1
 			),
-			"tips"     => array(
-				"heading"    => "Bookings Tips",
-				"description"=> "Tutorial on how to add a booking",
-				"file"       => "ab/ab_bookings_tips.html",
-				"tutorial"   => "",
-				"faq"        => "",
-				"p"          => 1
+			"settings" => array(
+				"heading"     => "Change list settings",
+				"description" => "Help on how to add a booking",
+				"file"        => "ab/ab_record_settings.html",
+				"tutorial"    => "",
+				"faq"         => "",
+				"p"           => 1
 			)
 		)
 
@@ -134,7 +127,7 @@ $docs['ab'] = array(
 			"filter"   => array(
 				"heading"    => "filter bookings",
 				"description"=> "Tutorial on how to add a booking",
-				"file"       => "ab/ab_production_filter.html",
+				"file"       => "ab/ab_records_filter.html",
 				"tutorial"   => "",
 				"faq"        => "",
 				"p"          => perm('production', 'page')

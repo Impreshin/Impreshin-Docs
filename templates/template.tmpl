@@ -11,7 +11,7 @@
 <html class="no-js" lang="en">
 <!--<![endif]-->
 
-<!--no_timer_list-->
+<!--no_timer_ssssssssssssss_list-->
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -145,7 +145,22 @@
 
         });
 
+    function updatetimerlist(d, page_size) {
+        //console.log(d);
+        if (!d) {
+            return false;
+        }
+        if (typeof parent.updatetimerlist == 'function') {
+            console.log("parent exists");
+            console.log(d);
+            parent.updatetimerlist(d, page_size);
 
+        } else {
+            console.log("parent doesnt exist");
+        }
+
+
+    }
 </script>
 
 

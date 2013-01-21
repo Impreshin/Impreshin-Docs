@@ -61,15 +61,15 @@
                 <article id="right-area" class="span5 offset11">
                     {% include "_side_nav.tmpl" %}
 
-                    <div class="bottom-right" style="padding-bottom: 10px;">
-                        <h2>Details
+                    <div class="bottom-right" >
+                        <h2>&nbsp;
                             {% if data['up'] %}
                                 <a href="{{ data['up'] }}" class="btn  btn-mini span1" style="float:right; margin-right: 5px;">
                                     <i class="icon-circle-arrow-up icon-d-grey"></i></a>{% endif %}
                         </h2>
 
                         {% if data['help']['tutorial'] %}
-                            <a class="btn btn-primary tutorial-btn" href="/docs/files/{{ data['help']['tutorial'] }}">Tutorial Video</a>
+                            <a class="btn btn-primary tutorial-btn" href="/docs/files/{{ data['help']['tutorial'] }}" style="margin-bottom: 10px;">Tutorial Video</a>
                         {% endif %}
 
                     </div>
