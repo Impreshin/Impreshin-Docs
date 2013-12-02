@@ -4,20 +4,95 @@
  * Time: 12:35 PM
  */
 
+//namespace docs;
+class docs {
+	function __construct() {
+		$this->f3 = \base::instance();
+		$this->user = $this->f3->get("user");
+		
 
+	}
+
+
+
+
+
+
+	function data(){
+		$docs = array();
+		$f3 = \Base::instance();
+		$applications = $f3->get("applications");
+		
+		
+		foreach (glob("./docs/apps/*/docs.php") as $route) {
+			include_once($route);
+		}
+
+		return $docs;
+		
+	}
+
+
+	function page(){
+		$docs = array();
+		$applications = $this->f3->get("applications");
+		$key = $this->f3->get("app");
+		$params = $this->f3->get("params");
+	
+	
+		$data = $this->data();
+		$data = $data[$key];
+		
+	//	test_array($data); 
+	
+		$docs = $data;
+		//$docs = isset($docs[$key])?$docs[$key]:array();
+
+		
+		//test_array($params); 
+		$parts = isset($params[1])?$params[1]:"";
+		$parts = explode("/",$parts);
+		//test_array($parts);
+		
+		$breadcrumbs = array("Home");
+	
+		foreach ($parts as $p){
+			
+			if (isset($docs['sub'][$p])){
+				$docs = $docs['sub'][$p];
+				$breadcrumbs[] = $p;
+			}
+			
+		}
+	
+	
+	
+	
+		$tmpl = new \template("template.tmpl",array("docs/templates/","docs/apps/$key/html"));
+	
+		$tmpl->data = $data;
+		$tmpl->docs = $docs;
+		$tmpl->breadcrumbs = $breadcrumbs;
+		$tmpl->base = "/app/$key/documentation";
+		$tmpl->applications = $applications;
+		$tmpl->current_app = $key;
+	
+		$tmpl->output();
+	
+	
+	
+	
+	
+	
+	}
+}
 function perm() {
 	$args = func_get_args();
 
-	$ver = explode(".", defined('\Base::VERSION') ? \Base::VERSION : \Base::TEXT_Version);
-	$ver = $ver[0];
 
+	$f3 = \Base::instance();
+	$user = $f3->get("user");
 
-	if ($ver > 2){
-		$f3 = \Base::instance();
-		$user = $f3->get("user");
-	} else {
-		$user = \F3::get("user");
-	}
 
 	$permission = $user['permissions'];
 
@@ -33,6 +108,7 @@ function perm() {
 	return ($permission == '1') ? 1 : 0;
 }
 
+/*
 
 $docs['ab'] = array(
 	"form"      => array(
@@ -391,4 +467,4 @@ $docs['ab'] = array(
 	)
 
 
-);
+);*/

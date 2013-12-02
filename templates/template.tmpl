@@ -16,27 +16,125 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-	<title>{{ page['meta']['title']|default("") }}</title>
-
-	<link rel="stylesheet" type="text/css" href="/min/css.{{_v}}.css"/>
-
-
-	<script src="/ui/_js/libs/modernizr.{{_v}}.js"></script>
+	<title>{{ docs['title']|default("") }}</title>
+	<meta name="description" content="">
+	<meta name="author" content="">
 
 
-	{% if page['template_css'] %}
-	<link rel="stylesheet" href="{{ page['template_css'] }}">
-	{% endif %}
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="/ui/_css/libs/custom-theme/jquery-ui.{{_v}}.css"/>
+	<link rel="stylesheet" type="text/css" href="/ui/_css/style.{{_v}}.css"/>
 
 
+	<script src="/ui/_js/libs/modernizr.{{ _v }}.js"></script>
 
+
+	{% for row in page['css'] %}
+		<link rel="stylesheet" href="{{ row }}">
+	{% endfor %}
+
+	
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+
+	<style type="text/css">
+		.nav a.active {
+			background-color: #ddd;;
+		}
+		
+		.nav-pills li.active a {
+			background-color: #f1f1f1;
+			border: 1px solid #ccc;
+			color: #444;;
+		}
+	</style>
 
 
 
 </head>
 <body class="help_pages">
 
-{% if page['template'] %} {% include page['template'] %} {% endif %}
+<section id="maintoolbar">
+	<div class="container">
+		<div class="toolbar clearfix  ">
+
+			<ul class="nav nav-pills pull-left">
+				<li>
+					<h2 style="padding-left: 30px; margin-bottom: -5px;">{{ docs['heading'] }}</h2>
+				</li>
+
+				<li class="divider-vertical"></li>
+				<li>
+					<h2 style=" margin-bottom: -5px;">
+						<small> {{ docs['description']|capitalize }}</small>
+					</h2>
+				</li>
+				<li style="float: right;">
+					<button class="btn span1 fancy-close" style="position:absolute;top:5px; right:5px;"> Close
+					</button>
+				</li>
+			</ul>
+		</div>
+		<div class="toolbar-end"></div>
+	</div>
+
+</section>
+<section role="main" id="pagecontent">
+	<div class="container help_pages">
+
+
+		<div class="row">
+			<article id="left-area" class="span11">
+				<div class="content">
+
+					<ul class="breadcrumb">
+						{% for row in breadcrumbs %}
+							{% if loop.last %}
+								<li class="active">{{ row }}</li>
+							{% else %}
+								{% if loop.first %}
+									<li><a href="{{ base }}">{{ row }}</a> <span class="divider">/</span></li>
+								{% else %}
+									<li><a href="{{ base }}/{{ row }}">{{ row }}</a> <span class="divider">/</span></li>
+								{% endif %}
+							{% endif %}
+						{% endfor %}
+						
+					</ul>
+
+					<div class="scroll-pane scrolly" style="top: 35px;">
+						<div style="padding: 10px 15px 30px 15px; ">
+							
+						
+						{% if docs['file'] %}
+							{% set file = docs['file'] %}
+							{% include [ file, 'none.html'] %}
+						{% endif %}
+					</div>
+
+					</div>
+				</div>
+				<div class="loadingmasks wide"></div>
+			</article>
+			<article id="right-area" class="span5 offset11">
+
+				{% include "_side_nav.tmpl" %}
+				<div class="bottom-right">
+					
+
+
+				</div>
+
+			</article>
+		</div>
+
+
+	</div>
+
+</section>
+
+
+
+
 
 
 

@@ -1,44 +1,36 @@
-<h2>Sections <a href="/{{ raw['app'] }}/help" class="btn span1" style="float:right; margin-right: 5px;"><i class="icon-home  icon-d-grey"></i></a></h2>
+<h2>Sections
+	<a href="{{ base }}" class="btn span1" style="float:right; margin-right: 5px;"><i class="icon-home  icon-d-grey"></i></a>
+</h2>
 <div class="scroll-pane" style="top:48px;">
-<ul class="nav">
-    {% for key, row in raw['data'][raw['app']] %}
-        <li {% if key==raw['section'] %}class="active"{% endif %}>
-            <a href="/{{ raw['app'] }}/help/{{ key }}">
-                {{ row['title'] }}
-            </a>
-            {% if key==raw['section'] %}
-                <ul>
-                    {% for skey, srow in row['help'] %}
-                        <li {% if skey==raw['sub_section'] %}class="active"{% endif %}>
-                            <a href="/{{ data['app'] }}/help/{{ key }}/{{ skey }}">
-                                {% if not srow['heading'] %}
-                                    {{ srow['title'] }}
-                                {% else %}
-                                    {{ srow['heading'] }}
-                                {% endif %}
-                            </a>
-
-                            {% if skey==raw['sub_section'] and srow['help'] %}
-                                <ul>
-
-                                    {% for sskey, ssrow in srow['help'] %}
-                                        <li {% if sskey==raw['sub_section_item'] %}class="active"{% endif %}>
-                                            <a href="/{{ data['app'] }}/help/{{ key }}/{{ skey }}/{{ sskey }}">
-                                                {{ ssrow['heading'] }}
-                                            </a>
-                                        </li>
 
 
-                                    {% endfor %}
-                                </ul>
-                            {% endif %}
+	{% macro list(data,base,docs,url) %}
+		{% import _self as macro %}
+		{% for key,row in data %}
+			
+			<li>
+				<a href="{{ url }}/{{ key }}" {% if docs['file'] == row['file'] %} class="active"{% endif %}>
+					{{ row['heading'] }}
+				</a>
+
+				{% if row['sub'] %}
+				<ul>
+					
+					{{ macro.list(row['sub'],base,docs,url ~ "/" ~ key) }}
+				</ul>
+				{% endif %}
 
 
-                        </li>
-                    {% endfor %}
-                </ul>
-            {% endif %}
-        </li>
-    {% endfor %}
-</ul>
-    </div>
+			</li>
+		{% endfor %}
+
+	{% endmacro %}
+	{% import _self as macro %}
+
+
+
+	<ul class="nav">
+		{{ macro.list(data['sub'],base,docs,base) }}
+   
+	</ul>
+</div>

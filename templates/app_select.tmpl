@@ -1,0 +1,18 @@
+<div>
+
+	<h3>Switch Application</h3></div>
+
+<div >
+	<ul class="nav nav-pills" style="margin-left:0px;margin-top:50px;">
+		{% for app,row in _user['applications'] %}
+			<li class="{% if app == current_app %}active{% endif %} span5" >
+				<a href="/app/{{ app }}/documentation">
+					<h3 class="c">
+						{{ row['name'] }}<br>
+						<small>{{ row['description'] }}</small>
+					</h3></a>
+			</li>
+		{% endfor %}
+
+	</ul>
+</div>
