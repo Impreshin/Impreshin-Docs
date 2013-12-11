@@ -1,22 +1,26 @@
-<h2>Sections
+<h2>{{ current_application.name }}
 	<a href="{{ base }}" class="btn span1" style="float:right; margin-right: 5px;"><i class="icon-home  icon-d-grey"></i></a>
 </h2>
 <div class="scroll-pane" style="top:48px;">
+{{ current_key }}
 
-
-	{% macro list(data,base,docs,url) %}
+	{% macro list(data,base,docs,current_key,url) %}
 		{% import _self as macro %}
 		{% for key,row in data %}
 			
 			<li>
-				<a href="{{ url }}/{{ key }}" {% if docs['file'] == row['file'] %} class="active"{% endif %}>
-					{{ row['heading'] }}
+				<a href="{{ url }}/{{ key }}" {% if current_key == row['key'] %} class="active"{% endif %}>
+					{{ row['heading'] }} <br> - {{ row['key'] }} <br> - {{ current_key }}
+
+					{% if row['sub'] %}
+					<i class="icon-caret-down g"></i>
+					{% endif %}
 				</a>
 
 				{% if row['sub'] %}
 				<ul>
 					
-					{{ macro.list(row['sub'],base,docs,url ~ "/" ~ key) }}
+					{{ macro.list(row['sub'],base,docs,current_key,url ~ "/" ~ key) }}
 				</ul>
 				{% endif %}
 
@@ -30,7 +34,7 @@
 
 
 	<ul class="nav">
-		{{ macro.list(data['sub'],base,docs,base) }}
+		{{ macro.list(data['sub'],base,docs,current_key,base) }}
    
 	</ul>
 </div>

@@ -37,15 +37,30 @@
 	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
 
 	<style type="text/css">
+		.nav li ul {
+			/* display:none; */
+		}
+		
 		.nav a.active {
 			background-color: #ddd;;
 		}
+		.nav .icon-caret-down {
+			float:right;
+			margin-right: 5px;
+			margin-top: 3px;
+		}
+		.nav li a {
+			padding-right:5px!important;
+		}
+		
 		
 		.nav-pills li.active a {
 			background-color: #f1f1f1;
 			border: 1px solid #ccc;
 			color: #444;;
 		}
+		
+		
 	</style>
 
 
@@ -58,8 +73,10 @@
 		<div class="toolbar clearfix  ">
 
 			<ul class="nav nav-pills pull-left">
+				
+				
 				<li>
-					<h2 style="padding-left: 30px; margin-bottom: -5px;">{{ docs['heading'] }}</h2>
+					<h2 style="padding-left: 20px; padding-right: 20px;margin-bottom: -5px;">{{ docs['heading'] }}</h2>
 				</li>
 
 				<li class="divider-vertical"></li>
@@ -87,6 +104,7 @@
 				<div class="content">
 
 					<ul class="breadcrumb">
+						<li><h3 class="g" style="margin:-10px 0; padding:  0 10px 0 0; ">{{ current_app|upper }}</h3></li>
 						{% for row in breadcrumbs %}
 							{% if loop.last %}
 								<li class="active">{{ row }}</li>
@@ -179,6 +197,15 @@
             }
 
         };
+	    
+	    var $selected_nav = $(".nav a.active").closest("li");
+	   
+	   // $selected
+	    $selected_nav.closest("li").find(">ul").show();
+	    $selected_nav.parentsUntil(".nav").show();
+	   // open_children($selected_nav)
+	  
+	   
 
 
         $(".tutorial-btn").fancybox(tutorialOptions);

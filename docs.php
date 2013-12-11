@@ -28,6 +28,13 @@ class docs {
 			include_once($route);
 		}
 
+		$n = array();
+
+		
+		
+		test_array($n); 
+		
+
 		return $docs;
 		
 	}
@@ -56,14 +63,18 @@ class docs {
 		
 		$breadcrumbs = array("Home");
 	
+		$current_key = array();
+		$n = array();
 		foreach ($parts as $p){
 			
 			if (isset($docs['sub'][$p])){
 				$docs = $docs['sub'][$p];
+				$current_key[] = $p;
 				$breadcrumbs[] = $p;
 			}
 			
 		}
+		$current_key = implode("|",$current_key);
 	
 	
 	
@@ -75,7 +86,9 @@ class docs {
 		$tmpl->breadcrumbs = $breadcrumbs;
 		$tmpl->base = "/app/$key/documentation";
 		$tmpl->applications = $applications;
+		$tmpl->current_key = $current_key;
 		$tmpl->current_app = $key;
+		$tmpl->current_application = $applications[$key];
 	
 		$tmpl->output();
 	
