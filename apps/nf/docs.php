@@ -3,9 +3,10 @@
  * Date: 2013/12/02
  * Time: 11:12 AM
  */
- $docs['nf'] = array(
-	 "heading"    => $applications['nf']['name'],
-	 "description"=> $applications['nf']['description'],
+$app = "nf";
+$docs[$app] = array(
+	"heading"    => $applications[$app]['name'],
+	"description"=> $applications[$app]['description'],
 	 "file"       => "index.html",
 	 "tutorial"   => "",
 	 "p"          => 1,

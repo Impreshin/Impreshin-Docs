@@ -61,19 +61,24 @@ class docs {
 	
 		$current_key = array();
 		$n = array();
+		$uri = "/app/$key/documentation";
 		foreach ($parts as $p){
 			
 			if (isset($docs['sub'][$p])){
 				$docs = $docs['sub'][$p];
+				$uri = $uri . "/". $p;
 				$current_key[] = $p;
 				$breadcrumbs[] = $p;
 			}
 			
 		}
 		$current_key = implode("|",$current_key);
+
+		$settings = "\\apps\\$key\\settings";
+		$settings = $settings::_available();
 	
 		
-	
+	//test_array($settings); 
 	
 	
 		$tmpl = new \template("template.tmpl",array("docs/templates/","docs/apps/$key/html"));
@@ -84,8 +89,9 @@ class docs {
 		$tmpl->base = "/app/$key/documentation";
 		$tmpl->applications = $applications;
 		$tmpl->current_app = $key;
-		$tmpl->uri = $_SERVER['REQUEST_URI'];
+		$tmpl->uri = $uri;
 		$tmpl->current_application = $applications[$key];
+		$tmpl->settings = $settings;
 	
 		$tmpl->output();
 	

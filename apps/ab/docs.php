@@ -1,9 +1,9 @@
 <?php
 
-
- $docs['ab'] = array(
-	 "heading"    => $applications['ab']['name'],
-	 "description"=> $applications['ab']['description'],
+$app = "ab";
+ $docs[$app] = array(
+	 "heading"    => $applications[$app]['name'],
+	 "description"=> $applications[$app]['description'],
 	 "file"       => "index.html",
 	 "tutorial"   => "",
 	 "p"          => 1,
