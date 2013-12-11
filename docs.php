@@ -28,11 +28,7 @@ class docs {
 			include_once($route);
 		}
 
-		$n = array();
-
 		
-		
-		test_array($n); 
 		
 
 		return $docs;
@@ -76,6 +72,7 @@ class docs {
 		}
 		$current_key = implode("|",$current_key);
 	
+		
 	
 	
 	
@@ -86,8 +83,8 @@ class docs {
 		$tmpl->breadcrumbs = $breadcrumbs;
 		$tmpl->base = "/app/$key/documentation";
 		$tmpl->applications = $applications;
-		$tmpl->current_key = $current_key;
 		$tmpl->current_app = $key;
+		$tmpl->uri = $_SERVER['REQUEST_URI'];
 		$tmpl->current_application = $applications[$key];
 	
 		$tmpl->output();
